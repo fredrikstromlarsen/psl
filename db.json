@@ -1,0 +1,27 @@
+[
+    {
+        "un": "admin",
+        "pw": "$2y$10$c3pkvpueaLL78iiYjqZoaeaIpZEHrHRT0DDAHvHzz83gRkVI9mHzK",
+        "role": "admin"
+    },
+    {
+        "un": "test",
+        "pw": "$2y$10$gTO.KAa6l7LvVDiQHtMirOZZQ5yP.vseX8t118C8wmM45f2k06k46",
+        "role": "guest"
+    },
+    {
+        "un": "user",
+        "pw": "$2y$10$5pUbSafB6sDwWY39wJbOLekzBnRZJLUp5BtVp23UvypE6mlpcb9ki",
+        "role": "guest"
+    },
+    {
+        "un": "guest",
+        "pw": "$2y$10$pEXe64M6Khg5sUGgXMoRzuK2XviIjqcbd91MH8m2sVIYuDG0D95qK",
+        "role": "guest"
+    },
+    {
+        "un": "mod",
+        "pw": "$2y$10$2rfk2Rf10wCRjrE39z3a4uuJJ9I6luHy5fJotNFdDbzUIgUzMywZK",
+        "role": "admin"
+    }
+]
