@@ -1,8 +1,0 @@
-{
-    "name": "tverrfaglig/project",
-    "type": "project",
-    "require": {
-        "vlucas/phpdotenv": "^5.4",
-        "firebase/php-jwt": "^5.5"
-    }
-}
