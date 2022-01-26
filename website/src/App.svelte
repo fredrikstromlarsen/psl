@@ -1,25 +1,45 @@
+<!-- TODO:
+	- Change url on:input
+	- Parse GET variables on:load
+	- Preview Panes
+ -->
+
 <script>
-	import Server from './Server.svelte';
-	import DatabaseType from './DatabaseType.svelte';
-	import Database from './Database.svelte';
-	import AuthToken from './AuthToken.svelte';
-	import HashAlgo from './HashAlgo.svelte';
-	import Extras from './Extras.svelte';
+	import Options from './Options.svelte'
+	// import { revealTitle } from './Animations.svelte'
 </script>
 
+<svelte:head>
+	<title>Pretty Secure Login</title>
+</svelte:head>
 <main>
 	<header>
-		<h1>Pretty Secure Login</h1>
-		<a href="https://github.com/fredrikstromlarsen/psl">Source code</a>
+		<h1><!-- on:hover={() => revealTitle()}>-->
+			<span class="icon">撚</span>&nbsp
+			<span class="dynamic-title">
+				<span>Pretty&nbsp;</span>
+				<span>Secure&nbsp;</span>
+				<span>Login</span>
+			</span>
+		</h1>
 	</header>
-	<form method="GET">
-		<Server />
-		<DatabaseType />
-		<Database />
-		<AuthToken />
-		<HashAlgo />
-		<Extras />
-	</form>
+	<div class="pane-container">
+		<Options />
+		<div class="pane">
+			<!-- 
+				Preview selection in OSI-model
+			-->
+		</div>
+		<div class="pane">
+			<!-- 
+				Preview of all files with a checkmark prechecked on everyone of them. 
+				Download button at the bottom.
+			-->
+		</div>
+	</div>
+	<footer>
+		<a href="https://github.com/fredrikstromlarsen/psl">View on GitHub</a>
+	</footer>
 </main>
 
 <style>
@@ -32,13 +52,45 @@
 		background-color: var(--bg);
 		color: var(--fg);
 		min-height: 100vh;
-		min-width: 100vw;
+		max-width: 100vw;
 		margin: 0 !important;
 		padding: 0 !important;
 	}
 	main {
-		height: 100vw;
-		width: 100vh;
+		min-height: calc(100vh - 4rem);
+		max-width: calc(100vw - 4rem);
+
 		padding: 2rem;
+
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+	.icon {
+		margin: 0 0.6rem;
+	}
+	.pane-container {
+		display: grid;
+		grid-template-columns: 20rem minmax(30rem, 1fr) minmax(25rem, 35rem);
+		grid-template-rows: 1fr;
+		gap: 1rem;
+	}
+	:global(.pane-container>*){
+		border: 0.2rem solid #0002;
+		border-radius: 0.25rem;
+		background-color: #0002;
+
+		height: 100%;
+		min-height: 10rem;;
+		width: calc(100% - 4rem);
+		padding: 0 2rem;
+	}
+	
+
+	@media only screen and (max-width: 1300px){
+		.pane-container {
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(3, auto);
+		}
 	}
 </style>

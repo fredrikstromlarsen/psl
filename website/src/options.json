@@ -1,0 +1,41 @@
+{
+    "server": {
+        "type": "radio",
+        "values": [
+            "nginx",
+            "apache",
+            "nodejs",
+            "flask"
+        ]
+    },
+    "database": {
+        "type": "radio",
+        "values": [
+            "mysql",
+            "postgres",
+            "mongodb",
+            "redis"
+        ]
+    },
+    "hashing algorithm": {
+        "type": "radio",
+        "values": [
+            "bcrypt",
+            "argon2"
+        ]
+    },
+    "auth token": {
+        "type": "radio",
+        "values": [
+            "jwt",
+            "session"
+        ]
+    },
+    "extras": {
+        "type": "checkbox",
+        "values": [
+            "e2ee",
+            "2fa"
+        ]
+    }
+}
