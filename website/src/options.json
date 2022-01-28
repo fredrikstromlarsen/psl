@@ -1,5 +1,6 @@
-{
-    "server": {
+[
+    {
+        "name": "server",
         "type": "radio",
         "values": [
             "nginx",
@@ -8,7 +9,8 @@
             "flask"
         ]
     },
-    "database": {
+    {
+        "name": "database",
         "type": "radio",
         "values": [
             "mysql",
@@ -17,25 +19,28 @@
             "redis"
         ]
     },
-    "hashing algorithm": {
+    {
+        "name": "hashing algorithm",
         "type": "radio",
         "values": [
             "bcrypt",
             "argon2"
         ]
     },
-    "auth token": {
+    {
+        "name": "auth token",
         "type": "radio",
         "values": [
             "jwt",
             "session"
         ]
     },
-    "extras": {
+    {
+        "name": "extras",
         "type": "checkbox",
         "values": [
             "e2ee",
             "2fa"
         ]
     }
-}
+]

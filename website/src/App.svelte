@@ -26,15 +26,11 @@
 	<div class="pane-container">
 		<Options />
 		<div class="pane">
-			<!-- 
-				Preview selection in OSI-model
-			-->
+				Preview current selection in OSI-model
 		</div>
 		<div class="pane">
-			<!-- 
-				Preview of all files with a checkmark prechecked on everyone of them. 
-				Download button at the bottom.
-			-->
+				Preview of all files (in a sidebar-like directory listing) with user selectable check boxes which should pre-ticked. 
+				"Download selection" button at the bottom. Bundle files in a zipped archive.
 		</div>
 	</div>
 	<footer>
@@ -46,6 +42,9 @@
 	:root {
 		--bg: #1a1c20;
 		--fg: #eeeae7;
+		--overlay-d: #0002;
+		--fg-link: #6d4bff;
+		--fg-link-visited: #4d2bff;
 	}
 
 	:global(body) {
@@ -53,41 +52,59 @@
 		color: var(--fg);
 		min-height: 100vh;
 		max-width: 100vw;
-		margin: 0 !important;
-		padding: 0 !important;
+
+		margin: 0;
+		padding: 0;
+
+		display: flex;
+		justify-content: center;
+	}
+	:global(a) { color: var(--fg-link); }
+	:global(a:visited) { color: var(--fg-link-visited); }
+	h1 {
+		margin: 0;
+		padding: 0;
 	}
 	main {
 		min-height: calc(100vh - 4rem);
-		max-width: calc(100vw - 4rem);
-
-		padding: 2rem;
+		width: 90vw;
+		max-width: 100rem;
 
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
 	}
 	.icon {
 		margin: 0 0.6rem;
 	}
 	.pane-container {
 		display: grid;
-		grid-template-columns: 20rem minmax(30rem, 1fr) minmax(25rem, 35rem);
+		grid-template-columns: 20rem minmax(15rem, 1fr) minmax(25rem, 35rem);
 		grid-template-rows: 1fr;
-		gap: 1rem;
+		gap: 1.1rem;
 	}
 	:global(.pane-container>*){
-		border: 0.2rem solid #0002;
-		border-radius: 0.25rem;
-		background-color: #0002;
-
-		height: 100%;
 		min-height: 10rem;;
 		width: calc(100% - 4rem);
-		padding: 0 2rem;
+		padding: 2rem;
+		background-color: var(--overlay-d);
+		border-radius: 0.25rem;
+		border: 0.2rem solid var(--overlay-d);
 	}
-	
 
-	@media only screen and (max-width: 1300px){
+	header, footer {
+		padding: 2rem 0;
+	}
+
+	@media only screen and (max-width: 1300px) {
+		.pane-container {
+			grid-template-columns: 15rem 1fr;
+			grid-template-rows: repeat(2, auto);
+		}
+		.pane-container>*:last-child{
+			grid-column: 1 / -1;
+		}
+	}
+	@media only screen and (max-width: 700px) {
 		.pane-container {
 			grid-template-columns: 1fr;
 			grid-template-rows: repeat(3, auto);
